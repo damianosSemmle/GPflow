@@ -232,7 +232,7 @@ class Parameter(Node):
 
     def anchor(self, session):
         if not isinstance(session, tf.Session):
-            ValueError('TensorFlow Session expected when anchoring.')
+            raise ValueError('TensorFlow Session expected when anchoring.')
         if self.trainable:
             value = self.read_value(session=session)
             self.assign(value, session=session)
